@@ -1,3 +1,4 @@
+/*
 package pages;
 
 import Utils.UiTestsUrls;
@@ -10,7 +11,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class MobileResultPage {
     private final WebDriver driver;
@@ -45,3 +45,4 @@ public class MobileResultPage {
 
 
 }
+*/

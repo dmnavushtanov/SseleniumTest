@@ -1,3 +1,4 @@
+/*
 package tests;
 
 import Utils.WebDriverUtils;
@@ -19,9 +20,9 @@ public class BaseTestHelper {
         return driver;
     }
 
-    @Given("Navigate to mobile url and accept cookies if exist")
-    public void navigateToPage(WebDriver driver, String url) {
-        driver.get(url);
+    @Given("Navigate to mobile {string} and accept cookies if exist")
+    public void navigateToPage(String url) {
+        getDriver().get(url);
         acceptCookiesIfExist(driver);
     }
 
@@ -34,3 +35,4 @@ public class BaseTestHelper {
         }
     }
 }
+*/
