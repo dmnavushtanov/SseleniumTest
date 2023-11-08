@@ -1,6 +1,7 @@
 package tests;
 
 import Utils.WebDriverUtils;
+import io.cucumber.java.en.Given;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -12,19 +13,20 @@ public class BaseTestHelper {
 
 
     public WebDriver getDriver() {
-        if(driver == null) {
+        if (driver == null) {
             driver = WebDriverUtils.initDriver(CHROME);
         }
         return driver;
     }
 
-    public void navigateToPage( WebDriver driver, String url) {
+    @Given("Navigate to mobile url and accept cookies if exist")
+    public void navigateToPage(WebDriver driver, String url) {
         driver.get(url);
         acceptCookiesIfExist(driver);
     }
 
-    public void acceptCookiesIfExist(WebDriver driver){
-        try{
+    public void acceptCookiesIfExist(WebDriver driver) {
+        try {
             driver.findElement(By.xpath(ACCEPT_COOKIE_BTN)).click();
         } catch (Exception e) {
             e.printStackTrace();

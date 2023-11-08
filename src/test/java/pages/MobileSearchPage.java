@@ -1,6 +1,8 @@
 package pages;
 
 import Utils.UiTestsUrls;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,11 +26,13 @@ public class MobileSearchPage {
         PageFactory.initElements(driver, this);
     }
 
+    @Given("verify the landing page")
     public void verifyMobilePageOpened() {
         Assert.assertTrue(driver.getCurrentUrl().contains(UiTestsUrls.MOBILE_BG_LAND_URL));
         ExpectedConditions.visibilityOf(searchBtn);
     }
 
+    @Then("select car manufacturer from drop down")
     public void selectCarManufacturer(String carManufacturer) {
         Select s = new Select(manufacturerSelect);
         s.selectByValue(carManufacturer);
@@ -36,6 +40,7 @@ public class MobileSearchPage {
         Assert.assertTrue(s.getFirstSelectedOption().getText().equals(carManufacturer));
     }
 
+    @Then("put max price for model")
     public void fillMaxPrice(String maxPrice) {
         ExpectedConditions.elementToBeClickable(maxPriceInputField);
         maxPriceInputField.sendKeys(maxPrice);
